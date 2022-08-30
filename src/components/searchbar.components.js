@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Searchbar } from "react-native-paper";
 
-const MyComponent = () => {
+const Search = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const onChangeSearch = (query) => setSearchQuery(query);
@@ -15,4 +15,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default Search;
