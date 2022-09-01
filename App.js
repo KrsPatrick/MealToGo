@@ -5,8 +5,32 @@ import { RestaurantScreen } from "./src/features/restaurants/screens/restaurant.
 
 import { StatusBar, StyleSheet } from "react-native";
 
+import { 
+  useFonts as useOswald,
+  Oswald_400Regular, 
+ } from "@expo-google-fonts/oswald";  
+
+ import { 
+  useFonts as useLato,
+  Lato_400Regular, 
+ } from "@expo-google-fonts/lato";
+
 export default function App() {
+
   console.log(StatusBar.currentHeight);
+
+  const [oswaldLoaded] = useOswald({
+    Oswald_400Regular
+  })
+
+  const [latoLoaded] = useLato({
+    Lato_400Regular
+  })
+
+  if (!oswaldLoaded || !latoLoaded){
+    return null
+  }
+
   return (
     <>
       <ThemeProvider theme={theme}>
