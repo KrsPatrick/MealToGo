@@ -4,7 +4,7 @@ import { Card } from "react-native-paper";
 
 export const Title = styled.Text`
   font-size: ${(props) => props.theme.fontSizes.title};
-  font-family: ${props => props.theme.fonts.body}
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 export const CardStyle = styled(Card)`
@@ -17,24 +17,21 @@ export const CardCover = styled(Card.Cover)`
 `;
 
 export const Info = styled.View`
-    padding: ${(props) => props.theme.space[3]};
-`
+  padding: ${(props) => props.theme.space[3]};
+`;
 
 export const Rating = styled.View`
-    flex-direction: row;
-    padding-top: ${(props) => props.theme.space[2]};
-    padding-bottom: ${(props) => props.theme.space[2]};
-    
-`
+  flex-direction: row;
+  padding-top: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+`;
 
 export const Address = styled.Text`
-    font-family: ${props => props.theme.fonts.body}
+    font-family: ${(props) => props.theme.fonts.body}
     font-size: ${(props) => props.theme.fontSizes.caption};
 
-`
+`;
 
 export const starOpen = styled.View`
-    flex: 1;
-`
-
-
+  flex: 1;
+`;
