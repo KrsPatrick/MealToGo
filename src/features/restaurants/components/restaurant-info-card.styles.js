@@ -2,13 +2,9 @@ import styled from "styled-components/native";
 
 import { Card } from "react-native-paper";
 
-export const Title = styled.Text`
-  font-size: ${(props) => props.theme.fontSizes.title};
-  font-family: ${(props) => props.theme.fonts.body};
-`;
-
 export const CardStyle = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
+  margin-bottom: ${(props) => props.theme.space[3]};
 `;
 
 export const CardCover = styled(Card.Cover)`
@@ -34,4 +30,24 @@ export const Address = styled.Text`
 
 export const starOpen = styled.View`
   flex: 1;
+`;
+
+export const Section = styled.View`
+  flex-direction: row;
+  align-itmes: center;
+`;
+
+export const Open = styled.View`
+  flex-direction: row;
+`;
+
+export const Icon = styled.Image`
+  width: 15px;
+  height: 15px;
+`;
+
+export const SectionEnd = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
 `;

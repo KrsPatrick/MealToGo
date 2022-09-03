@@ -1,35 +1,22 @@
 import React from "react";
-import { Text, StyleSheet, Image, View } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
+import { SvgXml } from "react-native-svg";
+
+import { Text } from "../../../components/typography/text.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
+import star from "../../../../assets/star";
+import open from "../../../../assets/open";
 
 import {
   CardStyle,
-  Title,
   CardCover,
   Info,
   Address,
   Rating,
+  Section,
+  Icon,
+  SectionEnd,
 } from "./restaurant-info-card.styles";
-
-import { SvgXml } from "react-native-svg";
-import star from "../../../../assets/star";
-import open from "../../../../assets/open";
-import styled from "styled-components";
-import { Spacer } from "../../../components/spacer/spacer.component";
-
-const Section = styled.View`
-  flex-direction: row;
-  align-itmes: center;
-`;
-
-const Open = styled.View`
-  flex-direction: row;
-`;
-
-const SectionEnd = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -50,7 +37,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     <CardStyle elevation={5}>
       <CardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Section>
           <Rating>
             {ratingArray.map((item, index) => (
@@ -59,13 +46,12 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
           </Rating>
           <SectionEnd>
             {isCloseTemporarily && (
-              <Text variant="label" style={{ color: "red" }}>
-                CLOSED TEMPORARILY
-              </Text>
+              <Text variant="caption">CLOSED TEMPORARILY</Text>
             )}
-            {/* <Spacer position="left" size="large" /> */}
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <Image
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Icon
               style={{ marginLeft: 16, width: 15, height: 15 }}
               source={{ uri: icon }}
             />
