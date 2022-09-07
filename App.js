@@ -6,9 +6,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeArea } from "./src/utils/safe-area.component";
-import { AntDesign } from "@expo/vector-icons";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+import React from "react";
 
-import { StatusBar, StyleSheet, View, Text } from "react-native";
+import { StatusBar, StyleSheet, Text } from "react-native";
 
 import {
   useFonts as useOswald,
@@ -79,19 +80,21 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={screenOptions}
-            tabBarOptions={{
-              tabBarActiveTintColor: "lightblue",
-              tabBarInactiveTintColor: "gray",
-            }}
-          >
-            <Tab.Screen name="Restaurant" component={RestaurantScreen} />
-            <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-          </Tab.Navigator>
-        </NavigationContainer>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={screenOptions}
+              tabBarStyle={{
+                tabBarActiveTintColor: "lightblue",
+                tabBarInactiveTintColor: "gray",
+              }}
+            >
+              <Tab.Screen name="Restaurant" component={RestaurantScreen} />
+              <Tab.Screen name="Map" component={MapScreen} />
+              <Tab.Screen name="Settings" component={SettingsScreen} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

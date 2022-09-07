@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 import { Text } from "../../../components/typography/text.component";
